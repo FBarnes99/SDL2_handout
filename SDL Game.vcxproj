@@ -41,7 +41,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\ferranbg3\Desktop\SDL2_handout\SDL\include;$(IncludePath)</IncludePath>
+    <IncludePath>P:\SDL2_handout-master\SDL\include;$(IncludePath)</IncludePath>
+    <LibraryPath>P:\SDL2_handout-master\SDL\libx86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -50,6 +51,7 @@
       <SDLCheck>true</SDLCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <AdditionalIncludeDirectories>C:\Users\ferranbg3\Desktop\SDL2_handout\SDL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/Y- %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -79,10 +81,12 @@
     <ClInclude Include="MemLeaks.h" />
     <ClInclude Include="Module.h" />
     <ClInclude Include="ModuleWindow.h" />
+    <ClInclude Include="ModuleRenderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="ModuleRenderer.cpp" />
     <ClCompile Include="ModuleWindow.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

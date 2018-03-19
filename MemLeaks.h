@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef __MEMLEAKS_H__
 #define __MEMLEAKS_H__
 

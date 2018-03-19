@@ -3,6 +3,7 @@
 #include "ModuleWindow.h"
 #include <iostream>
 #include <SDL.h>
+
 // TODO 2: Init the library and check for possible error
 // using SDL_GetError()
 
@@ -22,9 +23,18 @@ ModuleWindow::ModuleWindow( int width, int height) :
 	_closed = !Init();
 }
 
+ModuleWindow::~ModuleWindow() {
+	
+	SDL_DestroyWindow(_window);
+	
+	SDL_Quit();
+
+}
+
 bool ModuleWindow::Init()
 {
 	bool ret = true;
+
 	int ok = SDL_Init(SDL_INIT_VIDEO);
 	if (ok < 0) {
 
@@ -43,15 +53,33 @@ bool ModuleWindow::Init()
 			return false;
 		}
 
-
-
-
-
-
-
-
-
-
 	}
 	return ret;
+}
+
+void ModuleWindow::pollEvents(SDL_Event &event) {
+	switch (event.type) {
+	case SDL_QUIT:
+		_closed = true;
+		break;
+
+	case SDL_KEYDOWN:
+		switch (event.key.keysym.sym) {
+		case  SDLK_ESCAPE:
+			_closed = true;
+			break;
+
+		}
+
+
+	default:
+		break;
+	}
+
+}
+	
+	bool ModuleWindow :: CleanUp(){
+	
+	
+
 }
